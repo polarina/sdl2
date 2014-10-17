@@ -84,6 +84,18 @@ module Graphics.UI.SDL.Enum (
 	hintPriorityNormal,
 	hintPriorityOverride,
 
+	-- ** Initialization Flag
+	InitFlag,
+	initFlagTimer,
+	initFlagAudio,
+	initFlagVideo,
+	initFlagJoystick,
+	initFlagHaptic,
+	initFlagGameController,
+	initFlagEvents,
+	initFlagNoParachute,
+	initFlagEverything,
+
 	-- ** Keycode
 	Keycode,
 	keycodeUnknown,
@@ -328,12 +340,16 @@ module Graphics.UI.SDL.Enum (
 	keymodNone,
 	keymodLShift,
 	keymodRShift,
+	keymodShift,
 	keymodLCtrl,
 	keymodRCtrl,
+	keymodCtrl,
 	keymodLAlt,
 	keymodRAlt,
+	keymodAlt,
 	keymodLGUI,
 	keymodRGUI,
+	keymodGUI,
 	keymodNum,
 	keymodCaps,
 	keymodMode,
@@ -694,17 +710,6 @@ module Graphics.UI.SDL.Enum (
 	eventTypeUserEvent,
 	eventTypeLastEvent,
 
-	-- ** Initialization Flag
-	initFlagTimer,
-	initFlagAudio,
-	initFlagVideo,
-	initFlagJoystick,
-	initFlagHaptic,
-	initFlagGameController,
-	initFlagEvents,
-	initFlagNoParachute,
-	initFlagEverything,
-
 	-- ** Joystick Hat Position
 	joystickHatCentered,
 	joystickHatUp,
@@ -996,6 +1001,28 @@ hintPriorityOverride :: HintPriority
 hintPriorityDefault = (#const SDL_HINT_DEFAULT)
 hintPriorityNormal = (#const SDL_HINT_NORMAL)
 hintPriorityOverride = (#const SDL_HINT_OVERRIDE)
+
+type InitFlag = Word32
+
+initFlagTimer :: InitFlag
+initFlagAudio :: InitFlag
+initFlagVideo :: InitFlag
+initFlagJoystick :: InitFlag
+initFlagHaptic :: InitFlag
+initFlagGameController :: InitFlag
+initFlagEvents :: InitFlag
+initFlagNoParachute :: InitFlag
+initFlagEverything :: InitFlag
+
+initFlagTimer = (#const SDL_INIT_TIMER)
+initFlagAudio = (#const SDL_INIT_AUDIO)
+initFlagVideo = (#const SDL_INIT_VIDEO)
+initFlagJoystick = (#const SDL_INIT_JOYSTICK)
+initFlagHaptic = (#const SDL_INIT_HAPTIC)
+initFlagGameController = (#const SDL_INIT_GAMECONTROLLER)
+initFlagEvents = (#const SDL_INIT_EVENTS)
+initFlagNoParachute = (#const SDL_INIT_NOPARACHUTE)
+initFlagEverything = (#const SDL_INIT_EVERYTHING)
 
 type Keycode = (#type SDL_Keycode)
 
@@ -1478,12 +1505,16 @@ type Keymod = (#type SDL_Keymod)
 keymodNone :: Keymod
 keymodLShift :: Keymod
 keymodRShift :: Keymod
+keymodShift :: Keymod
 keymodLCtrl :: Keymod
 keymodRCtrl :: Keymod
+keymodCtrl :: Keymod
 keymodLAlt :: Keymod
 keymodRAlt :: Keymod
+keymodAlt :: Keymod
 keymodLGUI :: Keymod
 keymodRGUI :: Keymod
+keymodGUI :: Keymod
 keymodNum :: Keymod
 keymodCaps :: Keymod
 keymodMode :: Keymod
@@ -1492,12 +1523,16 @@ keymodReserved :: Keymod
 keymodNone = (#const KMOD_NONE)
 keymodLShift = (#const KMOD_LSHIFT)
 keymodRShift = (#const KMOD_RSHIFT)
+keymodShift = (#const KMOD_SHIFT)
 keymodLCtrl = (#const KMOD_LCTRL)
 keymodRCtrl = (#const KMOD_RCTRL)
+keymodCtrl = (#const KMOD_CTRL)
 keymodLAlt = (#const KMOD_LALT)
 keymodRAlt = (#const KMOD_RALT)
+keymodAlt = (#const KMOD_ALT)
 keymodLGUI = (#const KMOD_LGUI)
 keymodRGUI = (#const KMOD_RGUI)
+keymodGUI = (#const KMOD_GUI)
 keymodNum = (#const KMOD_NUM)
 keymodCaps = (#const KMOD_CAPS)
 keymodMode = (#const KMOD_MODE)
@@ -2188,26 +2223,6 @@ eventTypeClipboardUpdate = (#const SDL_CLIPBOARDUPDATE)
 eventTypeDropFile = (#const SDL_DROPFILE)
 eventTypeUserEvent = (#const SDL_USEREVENT)
 eventTypeLastEvent = (#const SDL_LASTEVENT)
-
-initFlagTimer :: (Num a) => a
-initFlagAudio :: (Num a) => a
-initFlagVideo :: (Num a) => a
-initFlagJoystick :: (Num a) => a
-initFlagHaptic :: (Num a) => a
-initFlagGameController :: (Num a) => a
-initFlagEvents :: (Num a) => a
-initFlagNoParachute :: (Num a) => a
-initFlagEverything :: (Num a) => a
-
-initFlagTimer = (#const SDL_INIT_TIMER)
-initFlagAudio = (#const SDL_INIT_AUDIO)
-initFlagVideo = (#const SDL_INIT_VIDEO)
-initFlagJoystick = (#const SDL_INIT_JOYSTICK)
-initFlagHaptic = (#const SDL_INIT_HAPTIC)
-initFlagGameController = (#const SDL_INIT_GAMECONTROLLER)
-initFlagEvents = (#const SDL_INIT_EVENTS)
-initFlagNoParachute = (#const SDL_INIT_NOPARACHUTE)
-initFlagEverything = (#const SDL_INIT_EVERYTHING)
 
 joystickHatCentered :: (Num a) => a
 joystickHatUp :: (Num a) => a
