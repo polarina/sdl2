@@ -1069,7 +1069,7 @@ instance Storable JoystickGUID where
 data Keysym = Keysym {
               keysymScancode :: Scancode
             , keysymKeycode :: Keycode
-            , keysymMod :: Word16
+            , keysymMod :: Keymod
             } deriving (Eq, Show)
 
 instance Storable Keysym where
